@@ -9,7 +9,7 @@ import Footer from './components/Footer.vue'
   <div class="container-fluid">
     <Header/>
     <RouterView />
-    <Footer/>
+    <Foo httpster/>
   </div>
 </template>
 
