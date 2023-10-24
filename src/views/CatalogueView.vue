@@ -3,6 +3,6 @@
 
 <template>
   <div class="container">
-    <h5>Catalogue</h5>    
+    <h5>Catalogue test</h5>    
   </div>
 </template>
