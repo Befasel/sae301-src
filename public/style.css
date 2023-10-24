@@ -1,6 +1,7 @@
 /* Body */
 body {
   background-color: #ffffff !important;
+  max-width: 100%;
 }
 
 /* Navigation & Footer Background */
