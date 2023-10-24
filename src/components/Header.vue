@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg nav_bg nav_full_width ">
+    <nav class="navbar navbar-expand-lg nav_bg nav_full_width d-flex justify-content-between">
 
         <RouterLink class="navbar-brand" to="/">
             <img src="/tavue.svg" alt="Logo TaVue" style="max-width:100px;" />
@@ -51,6 +51,3 @@ export default {
         </div>
     </nav>
 </template>
-
-<style scoped>
-</style>
