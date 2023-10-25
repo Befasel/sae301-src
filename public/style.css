@@ -1,15 +1,15 @@
 /* Body */
 body {
   background-color: #ffffff !important;
-  max-width: 100%;
 }
 
 /* Navigation & Footer Background */
 .nav_bg,
 .footer_bg {
   background-color: #1d1e56;
-  width: 100%;
+  width: 100vw;
   margin: 0;
+  position: fixed;
   left: 0;
   z-index: 1000;
 }
@@ -20,7 +20,7 @@ body {
 
 .footer_bg {
   bottom: 0;
-  padding: 40px 0;
+  padding-top: 20px;
 }
 
 /* Navigation Items */
@@ -29,7 +29,6 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: white;
-  margin-bottom: 15px;
 }
 
 .navbar-nav .nav-item:not(:last-child) {
@@ -90,20 +89,4 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-.footer-bar {
-  height: 2px;
-  background-color: white;
-  width: 80%;
-  margin: 20px auto;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }

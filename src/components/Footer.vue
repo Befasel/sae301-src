@@ -12,6 +12,7 @@ export default {
 <template>
   <footer class="footer_bg">
     <div class="footer-container">
+
       <!-- Première colonne : À propos de TaVue -->
       <div class="footer-col">
         <h2 class="nav_item">TaVue</h2>
@@ -35,22 +36,15 @@ export default {
       <div class="footer-col">
         <h2 class="nav_item">Réseaux</h2>
         <div class="social-icons">
-          <a href="#" class="footer-link"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="footer-link"><i class="fa fa-instagram"></i></a>
-          <a href="#" class="footer-link"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
         </div>
       </div>
-    </div>
-
-<div class="footer-bar"></div>
-
-    <div class="footer-bottom">
-      <p class="footer-text">&copy; 2023 TaVue Tous droits réservés</p>
-      <div class="footer-logo">
-        <RouterLink class="navbar-brand" to="/">
-          <img src="/tavue.svg" alt="Logo TaVue" style="max-width:100px;" />
-        </RouterLink>
-      </div>
+      
     </div>
   </footer>
 </template>
+
+<style scoped>
+</style>
