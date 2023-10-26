@@ -1,0 +1,12 @@
+Identifiant pocketbase
+
+mail : sae301@gmail.com
+mdp : pocketbasesae
+
+Hebergement
+
+https://www.tavue.benoitfasel.fr/ (pocketbase ne fontionne pas, pas possible de se connecter)
+
+http://45.147.96.40/ (avec pocketbase qui fontionne, possible de se connecter)
+
+lien du github qui automatise : https://github.com/Befasel/sae301-dist
