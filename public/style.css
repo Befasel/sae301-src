@@ -4,14 +4,16 @@ body {
 }
 
 /* Navigation & Footer Background */
-.nav_bg,
+.nav_bg {
+  background-color: #1d1e56;
+  width: 100%;
+  position: relative;
+}
+
 .footer_bg {
   background-color: #1d1e56;
-  width: 100vw;
-  margin: 0;
-  position: fixed;
-  left: 0;
-  z-index: 1000;
+  width: 100%;
+  position: relative;
 }
 
 .nav_bg {
@@ -90,3 +92,18 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.white-icon {
+  color: white;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

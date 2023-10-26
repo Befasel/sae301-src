@@ -1,5 +1,6 @@
 <script>
 import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'Footer',
@@ -7,6 +8,7 @@ export default {
     RouterLink
   }
 };
+
 </script>
 
 <template>
@@ -22,14 +24,10 @@ export default {
       </div>
 
       <!-- Deuxième colonne : Navigation -->
-      <div class="footer-col">
-        <h2 class="nav_item">Lunettes</h2>
-        <ul class="footer-list">
-          <li><RouterLink class="footer-link" to="/">Accueil</RouterLink></li>
-          <li><RouterLink class="footer-link" to="/catalogue">Catalogue</RouterLink></li>
-          <li><RouterLink class="footer-link" to="/personnalisation">Personnalisation</RouterLink></li>
-          <li><RouterLink class="footer-link" to="/login">Connexion</RouterLink></li>
-        </ul>
+      <div class="footer-col centered">
+        <RouterLink class="navbar-brand" to="/">
+            <img src="/tavue.svg" alt="Logo TaVue" style="max-width:200px;" />
+        </RouterLink>
       </div>
 
       <!-- Troisième colonne : Réseaux sociaux -->

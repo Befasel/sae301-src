@@ -1,84 +1,53 @@
 <script setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
+  import PocketBase from 'pocketbase'
 
-// Import de pocketbase
-import PocketBase from 'pocketbase'
-const pb = new PocketBase('http://127.0.0.1:8090')
+  const pb = new PocketBase("http://127.0.0.1:8090");
 
-const isConnected = ref(false)
+  const username = ref('')
+  const name = ref('')
+  const email = ref('')
+  const password = ref('')
+  const errorMessage = ref('')
 
-// Éléments de connexion
-const loginEmailOrId = ref('')
-const loginPassword = ref('')
-
-// Éléments d'inscription
-const signupEmail = ref('')
-const signupPassword = ref('')
-const confirmPassword = ref('')
-
-const errorMessage = ref('') // Message d'erreur global
-
-const connect = async () => {
-  // Votre code de connexion ici...
-  // Assurez-vous de gérer les erreurs et de mettre à jour isConnected en conséquence.
-}
-
-const signup = async () => {
-  if (signupPassword.value !== confirmPassword.value) {
-    errorMessage.value = "Les mots de passe ne correspondent pas!"
-    return
+  const registerUser = async () => {
+    try {
+      const result = await pb.collection('users').create({
+        Username: username.value,
+        Name: name.value,
+        Email: email.value,
+        Password: password.value
+      })
+      console.log("Création réussie : ", result)
+    } catch (error) {
+      console.log("Erreur lors de la création : ", error)
+      errorMessage.value = "Une erreur s'est produite lors de l'inscription. Veuillez réessayer. Si l'erreur persiste, veuillez utiliser 'TaVue' en Nom d'utilisateur et 'tavuesae' en mot de passe."
+    }
   }
-
-  try {
-    await pb.collection('users').create({
-      email: signupEmail.value,
-      password: signupPassword.value,
-    })
-
-    alert("Inscription réussie ! Vous pouvez maintenant vous connecter.")
-  } catch (error) {
-    console.error("Erreur lors de l'inscription:", error.message)
-    errorMessage.value = "Erreur lors de l'inscription."
-  }
-}
 </script>
 
 <template>
-  <div class="container mt-5 d-flex justify-content-between">
-    <!-- Connexion -->
-    <div class="card w-50 mr-3">
-      <div class="card-body">
-        <h5 class="card-title">Connexion</h5>
-        <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div> <!-- Affichage des erreurs -->
-        <div class="form-group">
-          <label for="loginEmailOrId">Mail ou identifiant :</label>
-          <input v-model="loginEmailOrId" type="text" class="form-control" id="loginEmailOrId" placeholder="identifiant ...">
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Mot de passe :</label>
-          <input v-model="loginPassword" type="password" class="form-control" id="loginPassword" placeholder="mot de passe ...">
-        </div>
-        <button @click="connect" type="submit" class="btn btn-primary">Connexion</button>
-      </div>
-    </div>
-    <!-- Inscription -->
-    <div class="card w-50">
-      <div class="card-body">
-        <h5 class="card-title">Inscription</h5>
-        <div class="form-group">
-          <label for="signupEmail">Mail :</label>
-          <input v-model="signupEmail" type="email" class="form-control" id="signupEmail" placeholder="mail...">
-        </div>
-        <div class="form-group">
-          <label for="signupPassword">Mot de passe :</label>
-          <input v-model="signupPassword" type="password" class="form-control" id="signupPassword" placeholder="mot de passe ...">
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirmer mot de passe :</label>
-          <input v-model="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="confirmation...">
-        </div>
-        <button @click="signup" type="submit" class="btn btn-primary">Inscription</button>
-      </div>
-    </div>
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 80vh; flex-direction: column; font-family: 'Inter', sans-serif;">
+
+    <h1 style="font-size: 2em; font-weight: 800; margin-bottom: 20px;">Inscription</h1>
+    
+    <p v-if="errorMessage" style="color: red; margin-bottom: 20px;">{{ errorMessage }}</p>
+
+    <form @submit.prevent="registerUser" style="display: flex; flex-direction: column; align-items: flex-start; margin: 0;">
+      <label for="username" style="margin-bottom: 10px;">Nom d'utilisateur:</label>
+      <input id="username" type="text" v-model="username" placeholder="Nom d'utilisateur" style="margin-bottom: 20px; width: 250px;" />
+
+      <label for="name" style="margin-bottom: 10px;">Nom:</label>
+      <input id="name" type="text" v-model="name" placeholder="Nom" style="margin-bottom: 20px; width: 250px;" />
+
+      <label for="email" style="margin-bottom: 10px;">Courrier électronique:</label>
+      <input id="email" type="email" v-model="email" placeholder="Courrier électronique" style="margin-bottom: 20px; width: 250px;" />
+
+      <label for="password" style="margin-bottom: 10px;">Mot de passe:</label>
+      <input id="password" type="password" v-model="password" placeholder="Mot de passe" style="margin-bottom: 20px; width: 250px;" />
+
+      <button type="submit" style="padding: 10px 20px; border: none; background-color: #1d1e56; color: #fff; cursor: pointer; font-size: 18px;">S'inscrire</button>
+    </form>
+
   </div>
 </template>
